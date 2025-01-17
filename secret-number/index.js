@@ -1,6 +1,6 @@
-const comparator = (value, wantedValue) => value - wantedValue;
+const compareValues = (value, wantedValue) => value - wantedValue;
 
-const binarySearch = (array, wanted) => {
+const findWithBinarySearch = (array, wanted) => {
   let start = 0;
   let end = array.length - 1;
 
@@ -9,11 +9,11 @@ const binarySearch = (array, wanted) => {
 
     console.log(`Компьютер 2: Пробую число ${middle + 1}.`);
     
-    if (comparator(array[middle], wanted) === 0) {
+    if (compareValues(array[middle], wanted) === 0) {
       return console.log("Компьютер 1: Угадал!");
     };
 
-		if (comparator(array[middle], wanted) < 0) {
+		if (compareValues(array[middle], wanted) < 0) {
       console.log("Компьютер 1: Больше.");
       
       start = middle + 1;
@@ -35,4 +35,4 @@ console.log("Компьютер 1 загадал число: ", secretNumber);
 
 const rangeForSearch = Array(maxRandomNumber).fill().map((el, index) => index + 1);
 
-binarySearch(rangeForSearch, secretNumber);
+findWithBinarySearch(rangeForSearch, secretNumber);
